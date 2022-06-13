@@ -5,6 +5,7 @@ import Link from "next/link";
 import Badge from "../components/badges";
 import { cardBackground } from "../shared/helpers";
 import { usePokemonDetail } from "../shared/hooks";
+import { PokemonDetail } from "../shared/interfaces";
 
 const PokemonDetail = () => {
   const router = useRouter();
@@ -42,7 +43,7 @@ const PokemonDetail = () => {
         </Link>
         <p className="text-3xl font-bold mt-3">#{data?.id}</p>
         <h1 className="text-3xl font-bold capitalize mb-2">{data?.name}</h1>
-        {data?.types.map((type: any, index: number) => {
+        {data?.types.map((type: PokemonDetail, index: number) => {
           return <Badge key={index} type={type} />;
         })}
         <figure className="text-center">
